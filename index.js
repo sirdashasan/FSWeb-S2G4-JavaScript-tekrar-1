@@ -93,37 +93,78 @@ console.log(alan);
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+/* let ucetambolunenler,
   enkucuk,
   enbuyuk,
   ucebolunenlerintoplami,
   besyuzdenkucuksayilar,
   siralisayilar,
   tekraredensayilar;
+*/ 
 
 // 3a çözümü
 
-/* kodlar buraya */
+let enkucuk = sayilar[0];
+let enbuyuk = sayilar[0];
+
+for (let i=1; i<sayilar.length; i++) {
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  } else if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+}
+
 
 // 3b çözümü:
 
-/* kodlar buraya */
+let ucetambolunenler = [];
+
+sayilar.forEach( (sayi, index)=> {
+  if (sayi %3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
 
 // 3c çözümü:
 
-/* kodlar buraya */
+const ucebolunenlerintoplami = ucetambolunenler.reduce( (toplam, sayi)=> {
+  return toplam + sayi;
+}, 0); 
+
 
 // 3d çözümü
 
-/* kodlar buraya */
+const besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
 // 3e çözümü
 
-/* kodlar buraya */
+const siralisayilar = besyuzdenkucuksayilar.slice().sort((a,b) => a-b);
 
 // 3f çözümü
 
-/* kodlar buraya */
+const tekrarlar = {};
+
+// eğer sayı ilk defa geldiyse 1 yazdır, önceden geldiyse bir arttır
+for (let i=0; i<sayilar.length; i++) {
+  const sayi = sayilar[i];
+  if (tekrarlar[sayi]) {
+    tekrarlar[sayi]++;
+  } else {
+    tekrarlar[sayi] = 1;
+  }
+}
+
+const tekraredensayilar = [];
+
+// 
+for (const sayi in tekrarlar) {
+  if (tekrarlar[sayi] > 1) {
+    const tekrarSayisi = tekrarlar[sayi];
+    const tekrarString = `${sayi} sayısı ${tekrarSayisi} tekrar edilmiştir}`;
+    tekraredensayilar.push(tekrarString);
+  }
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
